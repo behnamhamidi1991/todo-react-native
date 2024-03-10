@@ -7,6 +7,7 @@ import {
   Button,
   KeyboardAvoidingView,
   Platform,
+  TextInput,
 } from "react-native";
 import Task from "./components/Task";
 
@@ -28,7 +29,9 @@ export default function App() {
       <KeyboardAvoidingView
         behavior={Platform.OS === "iso" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
-      ></KeyboardAvoidingView>
+      >
+        <TextInput style={styles.input} placeholder={"Write as task ..."} />
+      </KeyboardAvoidingView>
     </View>
   );
 }
@@ -50,4 +53,5 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   writeTaskWrapper: {},
+  input: {},
 });
