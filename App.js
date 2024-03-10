@@ -1,6 +1,13 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import Task from "./components/Task";
 
 export default function App() {
@@ -16,6 +23,12 @@ export default function App() {
           <Task text={"Task2"} />
         </View>
       </View>
+
+      {/* Write a task */}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "iso" ? "padding" : "height"}
+        style={styles.writeTaskWrapper}
+      ></KeyboardAvoidingView>
     </View>
   );
 }
@@ -36,4 +49,5 @@ const styles = StyleSheet.create({
   items: {
     marginTop: 30,
   },
+  writeTaskWrapper: {},
 });
